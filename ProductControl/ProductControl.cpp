@@ -50,7 +50,7 @@ bool sortByCountLow(const TProductInfo& left, const TProductInfo& right)
 void viewProducts(vector<TProductInfo>);
 int сontextMenu();
 void viewContextMenu();
-vector<TProductInfo> getInfoFromShop();
+void getInfoFromShop();
 void readProductFile();
 void addNewProductInfo();
 void viewInfo(vector<TProductInfo>);
@@ -59,18 +59,12 @@ void readUsersFile();
 void addNewUser();
 void viewUsers();
 void renderUserList();
-bool authorize();
+void authorize();
 int selectMenuItem();
 int selectFindMenuItem();
 bool isValidLoginAndPassword(std::string, std::string);
 void deleteUser();
-const char *USER_PATH = "user.dat";
-const char *PRODUCT_INFO_PATH = "productInfos.dat";
-FILE *userFile;
-FILE *productInfoFile;
-vector<int>::iterator it;
-vector<TUser> users;
-vector<TProductInfo> productInfoList;
+
 void viewFindMenu();
 void viewFindMenuItems();
 vector<TProductInfo> findByName(string);
@@ -79,7 +73,22 @@ vector<TProductInfo> findByProductName(string);
 TUser tempUser;
 TUser currentUser;
 TProductInfo tempProduct;
+const char *USER_PATH = "user.dat";
+const char *PRODUCT_INFO_PATH = "productInfos.dat";
+FILE *userFile;
+FILE *productInfoFile;
+vector<int>::iterator it;
+vector<TUser> users;
+vector<TProductInfo> productInfoList;
 bool isAuthorize;
+
+typedef struct
+{
+	std::string name;
+	int count;
+}TInfo;
+
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -87,14 +96,7 @@ int main()
 	SetConsoleOutputCP(1251);
 	readUsersFile();
 	readProductFile();
-	do
-	{
-		if (authorize())
-		{
-			isAuthorize = true;
-			break;
-		}
-	} while (true);
+	authorize();
 	viewMainMenu();
 	return 0;
 }
@@ -139,7 +141,7 @@ void viewMainMenu()
 		case 1: viewInfo(productInfoList); break;
 		case 2: addNewProductInfo(); break;
 
-		case 3:  viewInfo(getInfoFromShop()); break;
+		case 3:  getInfoFromShop(); break;
 		case 4:  deleteProduct(); break;
 		case 5:  viewFindMenu(); break;
 		case 6: viewUsers();break;
@@ -154,7 +156,7 @@ void viewMainMenu()
 		switch (mainMenu())
 		{
 		case 1: viewInfo(productInfoList); break;
-		case 2: viewInfo(getInfoFromShop()); break;
+		case 2: getInfoFromShop(); break;
 		case 3: viewFindMenu(); break;
 		case 4: ExitProcess(1); break;
 		default: viewMainMenu(); break;
@@ -209,7 +211,7 @@ void viewContextMenu()
 	}
 	viewInfo(sortsProductInfoList);
 }
-bool authorize()
+void authorize()
 {
 	do
 	{
@@ -227,11 +229,10 @@ bool authorize()
 		}
 		else
 		{
-
-			return true;
+			break;
+			
 		}
 	} while (true);
-	return false;
 
 }
 
@@ -494,8 +495,9 @@ void addNewUser() // Ввод данных в файла
 	viewMainMenu();
 }
 
-vector<TProductInfo> getInfoFromShop()
+void getInfoFromShop()
 {
+	system("cls");
 	cout << "Введите номер цеха" << endl;
 	TProductInfo tempProduct;
 	cin >> tempProduct.number;
@@ -526,7 +528,45 @@ vector<TProductInfo> getInfoFromShop()
 			if (tempDate >= beginDate && tempDate <= endDate )
 				result.insert(result.end(), productInfoList[i]);
 	}
-	return result;
+	vector<TInfo> infos;
+	TInfo tempInfo;
+	bool flag;
+	if (result.size() > 0)
+	{
+		tempInfo.count = result[0].count;
+		tempInfo.name = result[0].productName;
+		for (int i = 1; i < result.size(); i++)
+		{
+			flag = false;
+			tempInfo.count = result[i].count;
+			tempInfo.name = result[i].productName;
+			for (int j = 0; j < infos.size(); j++)
+			{
+				if (tempInfo.name == infos[j].name)
+				{
+					infos[j].count += tempInfo.count;
+					flag = true;
+				}
+			}
+			if (!flag)
+				infos.insert(infos.end(), tempInfo);
+		}
+		cout << "***************************************\n";
+		cout  << "| Наименование |" << setw(15) << "Количество |\n";
+		for (int i = 0; i < infos.size(); i++)
+		{
+			cout << "| ";
+			cout << setw(7) << infos[i].name;
+			cout << setw(7) << "|" << setw(7) <<infos[i].count << setw(9) << "  | \n";
+		}
+	}
+	else
+		cout << "Ничего не найдено" << endl;
+	cout << "Нажмите клавишу для возврата в меню...";
+	int q;
+	cin >> q;
+	viewMainMenu();
+
 }
 void viewProducts(vector<TProductInfo> products)
 {

@@ -1,12 +1,15 @@
 ﻿  ProductControl.cpp
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(258): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(290): warning C4018: '>': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(395): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(405): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(488): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(522): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(259): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(291): warning C4018: '>': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(396): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(406): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(489): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(524): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(538): warning C4018: '<': signed/unsigned mismatch
 c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(543): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(573): warning C4018: '<': signed/unsigned mismatch
-c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(594): warning C4018: '>': signed/unsigned mismatch
-  ProductControl.vcxproj -> c:\users\pan017\documents\visual studio 2015\Projects\ProductControl\Debug\ProductControl.exe
-  ProductControl.vcxproj -> c:\users\pan017\documents\visual studio 2015\Projects\ProductControl\Debug\ProductControl.pdb (Full PDB)
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(556): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(583): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(613): warning C4018: '<': signed/unsigned mismatch
+c:\users\pan017\documents\visual studio 2015\projects\productcontrol\productcontrol\productcontrol.cpp(634): warning C4018: '>': signed/unsigned mismatch
+  ProductControl.vcxproj -> C:\Users\pan017\documents\visual studio 2015\Projects\ProductControl\Debug\ProductControl.exe
+  ProductControl.vcxproj -> C:\Users\pan017\documents\visual studio 2015\Projects\ProductControl\Debug\ProductControl.pdb (Full PDB)
